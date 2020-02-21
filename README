@@ -1,0 +1,13 @@
+'Beat Mage' Idea for CalvinHacks
+Team: Daniel, Catherine, Annika, Josh
+
+Using Pygame to make a game where players duel with spells.
+
+To Implement:
+
+Find Images to use in the game (Annika)
+Deal with key events and input window (Josh)
+Figuring out Hex grid (Catherine)
+Spell design and implementation (Daniel)
+
+Of course we can implement more later but this is a good start!
