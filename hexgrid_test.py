@@ -12,8 +12,11 @@ def main():
     pygame.display.set_caption("hexgrid test")
 
     hex_image = pygame.image.load("HexMap/regular_hex.png")
+    # scale image to half its original size
+    hex_image = pygame.transform.scale(hex_image, (195, 169))
 
-    hex_width = 338
+    # hex_width = 338
+    hex_width = 169
     width_scale = 0.86
     height_scale = 0.5
     x_dist = hex_width * width_scale
