@@ -17,14 +17,19 @@ def move_item(item, direction, offset, image, distance=1):
     neighbor_pix = None
     if neighbor:
         neighbor_pix = hexgrid.draw_neighbor(start_pix, direction, image, screen, offset=offset)
-        print(neighbor, neighbor_pix)
+        print("moved to", neighbor, neighbor_pix)
         item.set_position(neighbor)
         item.set_pixels(neighbor_pix)
         screen.blit(hex_image, start_pix)
     return neighbor_pix
 
 def move_player(player, direction, distance=1):
-    move_item(player, direction=direction, offset=wizard_offsets, image=player.get_image(), distance=distance)
+    return move_item(player, direction=direction, offset=wizard_offsets, image=player.get_image(), distance=distance)
+
+def check_collisions_player():
+    if abs(player1.get_pixels()[0] - player2.get_pixels()[0]) < 10 \
+            and abs(player1.get_pixels()[1] - player2.get_pixels()[1]) < 10:
+        return True
 
 screen = pygame.display.set_mode((1000,1000))
 screen.fill((255, 255, 255))  # set the screen to white
@@ -76,10 +81,15 @@ def mainLoop():
             if event.type == pygame.KEYDOWN:
                 if event.key in direction_keybindings_1:
                     direction = direction_keybindings_1[event.key]
+                    print("moving player 1", player1.get_position(), "player 2 at", player2.get_position())
                     move_player(player1, direction)
                 elif event.key in direction_keybindings_2:
                     direction = direction_keybindings_2[event.key]
+                    print("moving player 2", player2.get_position(), "player 1 at", player1.get_position())
                     move_player(player2, direction)
+                if check_collisions_player():
+                    print("Player collision!")
+                    return
         if timer.tick():        # tick the timer (must be before timer blit)
             # TODO: This is a new turn
             print("New turn!")
