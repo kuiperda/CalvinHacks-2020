@@ -7,16 +7,6 @@ class Player():
         self.position = position
         self.spells = spells
 
-    #def moveUp():
-        #set new position on grid
-        #render on new hexagon
-
-    #define each movement D, UR, UL, DR, DL
-
-    #def render():
-        #re-draw
-
-    
-    #define each spell cast yeaaaah
-    #def castGust(etc):
+    def cast(self, spellnum, position, direction)
+        #spells[spellnum].cast()
     
