@@ -43,7 +43,6 @@ Cantrips: (low level spells that generally have no CT and low CD)
 - Splitter: CT 0, CD 2
     Place a bolt in a direction; it splits into 2 moving at adjacent diagonals
 
-
 ----------------------------------------------------------------------------------------------------------
 Lesser: (the main spells of the game, variety of CT and CD with many effects)
 ----------------------------------------------------------------------------------------------------------
@@ -60,41 +59,42 @@ Lesser: (the main spells of the game, variety of CT and CD with many effects)
 - Barrier: CT 1, CD 8
     Block all damage from one spell
 
-- Shocking Bolt: CT 1, CD 4
-    Shoot a bolt at speed 2 that stuns (immobilize and silence) for 1 turn
+- Shocking Bolt: CT 1, CD 6
+    Shoot a bolt at speed 3 that stuns (immobilize and silence) for 1 turn
 
+- Rush: CT 1, CD 8
+    Dash in a line until hit edge, damage/stun enemy if hit
 
+-  Wind: CT 1, CD 8
+    Shove opponent (anywhere on map) 2 in a direction
 
-directed spell (choose a repeated pattern with direction keys)
-tendril moves within 3 tiles (hit 3 directions to use)
-self teleport 
-snaking spell?
-'telekinesis' moves opponent?
-    quick slash 
-big smash in front
-call down big semi-filled aoe around self (starcall)
-reflect
-poison/DoT
-stunning bolt
-linger/slow bolts but shoot a lot more?
-cone blast? (without freeze)
+- Boulder: CT 2, CD 10
+    Drop a boulder on self (after 3 turns) + adjacent
 
+- Poison Cloud: CT 1, CD 8
+    hit in a row of 5-7 2 hexes away, linger and deal DoT if hit
 
 ----------------------------------------------------------------------------------------------------------
 Greater: (most powerful spell, long cooldown/channel (probably)
 ----------------------------------------------------------------------------------------------------------
 
-- Shockwave: CT 1, CD 4
+- Bladestorm: CT 0, CD 4
+    Shoot a bolt in every direction, at half speed
+
+- Shockwave: CT 1, CD 6
     Hit all adjacent, then hit next ring
 
 - Freeze: CT 3, CD 10
     Shoot a cone that freezes enemy for a few turns (how big of a cone? 3?)
 
 - Bouncing Blast: CT 0, CD 8
-    Shoot a blast that bounces back and forth until it hits (maintain up to 3?)
+    Shoot a blast that bounces back and forth until it hits (maintain up to 4?)
 
-- Mega Blast CT 2, CD 8
+- Mega Blast: CT 1, CD 6
     Shoot a BIG blast (center 2 hexes away, shoot a moving blast with mega increased size to 7 hexes, speed of 1)
+
+- Hyper Beam: CT 2, CD 10
+    Shoot a BIG LASER with a width of 3 in a direction- stun self 2 turns after
 
 - Bullet Time: CT 4, CD N/A
     Passive effect: Increase the speed of bolts by 1, increase damage taken from bolts
@@ -102,32 +102,33 @@ Greater: (most powerful spell, long cooldown/channel (probably)
 - Meteor Shower: CT 4, CD N/A
     Passive effect: Rain down 3-6 meteors on random hexes each turn
 
+- Nether Leap: CT 1, CD 10
+    While channeling: press any number of directions; each moves impact site (then teleport and damage there + aoe) - but immobilize after?
 
+- Quake: CT 7, CD 12
+    Hit opponent (this one kinda sucks tbh)
 
+- Vortex: CT 1, CD 12
+    Throw 3 ahead, suck in all directions at range 2, immobilize 2 turns
 
-
-
-
-
-
-
-- Nether Walk: CT 3, CD 8
-    While channeling: direction moves location of impact 2 hexes in that direction, when a
-
-embrace madness/familiar (shoot bolts every turn in random directions?)
-hit walls only?
-immobilize silence invuln opponent for 2 turns (setup)
-big earthqake with long channel
-buff self (long channel) - less cooldown?
-time change? (speedup/slow?)
-debuff opponent somehow
-some sort of toggle? maybe deal more dmg but take more
-big wind (moves bolts etc)
-spiral/ring?
-
-AVOID THIS FOR NOW - permanent tile changes (add terrain spell (pillar on hex limit movement) or permanent lava hex)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 
 other random ideas:
+
+debuff opponent?
+move all objects?
+time magic?
+self buff (cooldown?)
+bard ult?
+embrace madness/familiar? (shoot off bolts randomly)
+spiral/ring?
+AVOID THIS FOR NOW - permanent tile changes (add terrain spell (pillar on hex limit movement) or permanent lava hex)
+redirected shot?
+directed spell (choose a repeated pattern with direction keys)
+tendril moves within 3 tiles (hit 3 directions to use)
+snaking spell 
+
+- Slap: CT 1, CD 4 (this is kind of a joke as a basic spell)
+    Stun on adjacent hex (one direction)
