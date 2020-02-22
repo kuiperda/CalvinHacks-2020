@@ -4,9 +4,9 @@ Keep track of turns and show bar on screen.
 For CalvinHacks 2020
 """
 
-INTERVAL = 10   # Length of turn in frames
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
+INTERVAL = 1000              # Length of turn in frames
+FILL = (0, 0, 0)            # Fill color
+BORDER = (255, 255, 255)    # Border color
 
 import pygame
 
@@ -35,15 +35,27 @@ class TurnTimer:
     """
     def tick(self):
         self._current_tick += 1
-        if self._interaval == self._current_tick:
+        if self._interval == self._current_tick:
             # TODO: Throw an event or something
             self._current_tick = 0
             self.drawBar()
+        else:
+            self.updateBar()
 
     """
     Draw the empty bar.
+    Called when the timer is reset.
     Should not be called by an external function.
     """
     def drawBar(self):
-        pygame.draw.rect(self._surface, WHITE, self._border_rect)
-        pygame.draw.rect(self._surface, BLACK, self._fill_rect)
+        pygame.draw.rect(self._surface, BORDER, self._border_rect)
+        pygame.draw.rect(self._surface, FILL, self._fill_rect)
+
+    """
+    Updates the bar with the current timer value.
+    Called by tick().
+    Should not be called by an external function.
+    """
+    def updateBar(self):
+        updateRect = pygame.Rect(0, 0, (self._width / self._interval) * self._current_tick, self._height)
+        pygame.draw.rect(self._surface, BORDER, updateRect)

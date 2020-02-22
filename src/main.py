@@ -23,6 +23,7 @@ def mainLoop():
         for event in eventList:
             if event.type == pygame.QUIT:
                 return
+        timer.tick()            # tick the timer (must be before timer blit)
         screen.blit(timer.getSurface(), (20, 20))
         pygame.display.flip()   # update the screen
         clock.tick()            # tick the clock
