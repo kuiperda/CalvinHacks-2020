@@ -8,6 +8,7 @@ For CalvinHacks 2020
 import pygame
 
 screen = pygame.display.set_mode((700,700))
+pygame.display.set_caption("Caster Blaster")
 
 # The main loop
 while True:
