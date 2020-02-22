@@ -24,6 +24,8 @@ def move_item(item, direction, offset, image, distance=1):
     return neighbor_pix
 
 def move_player(player, direction, distance=1):
+    if (direction == (0, 0, 0)):
+        return None
     return move_item(player, direction=direction, offset=wizard_offsets, image=player.get_image(), distance=distance)
 
 def check_collisions_player():
@@ -72,6 +74,10 @@ direction_keybindings_2 = {pygame.K_i: (-1, 1, 0), pygame.K_o: (0, 1, -1), pygam
 
 # The main loop
 def mainLoop():
+    p1_dir = (0, 0, 0)
+    p2_dir = (0, 0, 0)
+    p1_spell = 0
+    p2_spell = 0
     while True:
         eventList = pygame.event.get()
         
@@ -81,18 +87,32 @@ def mainLoop():
             if event.type == pygame.KEYDOWN:
                 if event.key in direction_keybindings_1:
                     direction = direction_keybindings_1[event.key]
-                    print("moving player 1", player1.get_position(), "player 2 at", player2.get_position())
-                    move_player(player1, direction)
+                    p1_dir = direction
                 elif event.key in direction_keybindings_2:
                     direction = direction_keybindings_2[event.key]
-                    print("moving player 2", player2.get_position(), "player 1 at", player1.get_position())
-                    move_player(player2, direction)
+                    p2_dir = direction
                 if check_collisions_player():
                     print("Player collision!")
                     return
         if timer.tick():        # tick the timer (must be before timer blit)
-            # TODO: This is a new turn
+            if p1_spell:
+                # TODO: Cast a spell
+                pass
+            else:
+                print("moving player 1", player1.get_position(), "player 2 at", player2.get_position())
+                move_player(player1, p1_dir)
+            if p2_spell:
+                # TODO: Cast a spell
+                pass
+            else:
+                print("moving player 2", player2.get_position(), "player 1 at", player1.get_position())
+                move_player(player2, p2_dir)
+
             print("New turn!")
+            p1_dir = (0, 0, 0)
+            p2_dir = (0, 0, 0)
+            p1_spell = 0
+            p2_spell = 0
         screen.blit(timer.getSurface(), (20, 20))
         pygame.display.flip()   # update the screen
         clock.tick()            # tick the clock
