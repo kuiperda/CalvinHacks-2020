@@ -9,24 +9,20 @@ def main():
 
     hex_image = pygame.image.load("HexMap/regular_hex.png")
     # scale image to half its original size
-    hex_dims = (195, 169)  # (195, 169)
+    hex_dims = (390 // 3, 338 // 3)  # (195, 169)
     hex_image = pygame.transform.scale(hex_image, hex_dims)
 
-    screen = pygame.display.set_mode((1000, 1000))
+    screen = pygame.display.set_mode((800, 1000))
     screen.fill((255, 255, 255))
-
-    x = 400
-    y = 400
 
     hr = hex_render.HexRenderer(size=hex_dims[0])
     # hr.draw_hex_circle((x, y), hex_image, screen, radius=2)
-    hr.draw_hex_rect(5, 5, (0, 0), hex_image, screen)
+    hr.draw_hex_rect(7, 7, (40, 150), hex_image, screen)
 
     pygame.display.flip()
 
     # define a variable to control the main loop
     running = True
-
     # main loop
     while running:
         # event handling, gets all event from the event queue
