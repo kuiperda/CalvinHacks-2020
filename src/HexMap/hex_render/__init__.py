@@ -39,7 +39,7 @@ class HexRenderer:
         if offset:
             delta_x += offset[0]
             delta_y += offset[1]
-        pixels = (start[0] + delta_x, start[1] + delta_y)
+        pixels = (round(start[0] + delta_x), round(start[1] + delta_y))
         surface.blit(image, pixels)
         return pixels
 

@@ -1,22 +1,23 @@
+class Player:
 
+    def __init__(self, **kwargs):
+        self.hp = kwargs.get("hp")
+        self.position = kwargs.get("position")
+        self.pixels = kwargs.get("pixels")
+        self.spells = kwargs.get("spells")
+        self.image = kwargs.get("image")
 
-class Player():
+    def get_position(self):
+        return self.position
 
-    def __init__(self, hp, position, spells):
-        self.hp = hp
+    def set_position(self, position):
         self.position = position
-        self.spells = spells
 
-    #def moveUp():
-        #set new position on grid
-        #render on new hexagon
+    def get_image(self):
+        return self.image
 
-    #define each movement D, UR, UL, DR, DL
+    def get_pixels(self):
+        return self.pixels
 
-    #def render():
-        #re-draw
-
-    
-    #define each spell cast yeaaaah
-    #def castGust(etc):
-    
+    def set_pixels(self, pixels):
+        self.pixels = pixels

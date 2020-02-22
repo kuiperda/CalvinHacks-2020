@@ -86,4 +86,4 @@ class HexMap:
         return None
 
     def draw_neighbor(self, start_pix, dir, image, surface, offset=None):
-        self._renderer.draw_neighbor(start_pix, dir, image, surface, offset)
+        return self._renderer.draw_neighbor(start_pix, dir, image, surface, offset)
