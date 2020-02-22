@@ -38,6 +38,7 @@ class TurnTimer:
         if self._interaval == self._current_tick:
             # TODO: Throw an event or something
             self._current_tick = 0
+            self.drawBar()
 
     """
     Draw the empty bar.
