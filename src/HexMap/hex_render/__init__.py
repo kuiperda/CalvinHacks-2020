@@ -34,9 +34,12 @@ class HexRenderer:
         delta_x, delta_y = self._dir_delta[direction]
         return start[0] + delta_x, start[1] + delta_y
 
-    def draw_neighbor(self, start, direction, image, surface):
+    def draw_neighbor(self, start, direction, image, surface, offset=None):
         delta_x, delta_y = self._dir_delta[direction]
-        pixels = (start[0] + delta_x, start[1] + delta_y)
+        if offset:
+            delta_x += offset[0]
+            delta_y += offset[1]
+        pixels = (round(start[0] + delta_x), round(start[1] + delta_y))
         surface.blit(image, pixels)
         return pixels
 
