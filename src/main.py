@@ -95,7 +95,6 @@ def mainLoop():
                     print("Player collision!")
                     return
         if timer.tick():        # tick the timer (must be before timer blit)
-            # TODO: This is a new turn
             if p1_spell:
                 # TODO: Cast a spell
                 pass
