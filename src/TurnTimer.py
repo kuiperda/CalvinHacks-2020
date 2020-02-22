@@ -5,6 +5,8 @@ For CalvinHacks 2020
 """
 
 INTERVAL = 10   # Length of turn in frames
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
 
 import pygame
 
@@ -23,6 +25,9 @@ class TurnTimer:
         self._fill_rect = pygame.Rect(5, 5, self._width - 10, self._height - 10)
 
         self.drawBar()
+
+    def getSurface():
+        return self._surface
     
     """
     Increase the tick timer.
@@ -39,5 +44,5 @@ class TurnTimer:
     Should not be called by an external function.
     """
     def drawBar(self):
-        pygame.draw.rect(self._surface, "white", self._border_rect)
-        pygame.draw.rect(self._surface, "black", self._fill_rect)
+        pygame.draw.rect(self._surface, WHITE, self._border_rect)
+        pygame.draw.rect(self._surface, BLACK, self._fill_rect)
