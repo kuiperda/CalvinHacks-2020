@@ -34,6 +34,21 @@ class HexRenderer:
         delta_x, delta_y = self._dir_delta[direction]
         return start[0] + delta_x, start[1] + delta_y
 
+    def draw_neighbor(self, start, direction, image, surface):
+        delta_x, delta_y = self._dir_delta[direction]
+        pixels = (start[0] + delta_x, start[1] + delta_y)
+        surface.blit(image, pixels)
+        return pixels
+
+    def get_size(self):
+        return self._size
+
+    def get_x_dist(self):
+        return self._x_dist
+
+    def get_y_dist(self):
+        return self._y_dist
+
     def draw_hex_rect(self, width, height, start, image, surface):
         """
 
