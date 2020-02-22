@@ -1,9 +1,5 @@
+from HexMap import hex_render
 import pygame
-import HexMap
-
-# import the pygame module, so you can use it
-import pygame
-
 
 # define a main function
 def main():
@@ -13,42 +9,17 @@ def main():
 
     hex_image = pygame.image.load("HexMap/regular_hex.png")
     # scale image to half its original size
-    hex_image = pygame.transform.scale(hex_image, (195, 169))
-
-    # hex_width = 338
-    hex_width = 169
-    width_scale = 0.86
-    height_scale = 0.5
-    x_dist = hex_width * width_scale
-    y_dist = hex_width * height_scale
-
-    # hex_directions = [Hex(1, 0, -1), Hex(1, -1, 0), Hex(0, -1, 1), Hex(-1, 0, 1), Hex(-1, 1, 0), Hex(0, 1, -1)]
-    # maps direction to change in x and y
-    dir_dict = {(1, 0, -1): (x_dist, -y_dist),
-                (1, -1, 0): (x_dist, y_dist),
-                (0, -1, 1): (0, y_dist * 2),
-                (-1, 0, 1): (-x_dist, y_dist),
-                (-1, 1, 0): (-x_dist, -y_dist),
-                (0, 1, -1): (0, -y_dist*2)
-                }
-    dirs = list(dir_dict.keys())
+    hex_dims = (195, 169)  # (195, 169)
+    hex_image = pygame.transform.scale(hex_image, hex_dims)
 
     screen = pygame.display.set_mode((1000, 1000))
     screen.fill((255, 255, 255))
 
-    x = 200
-    y = 200
+    x = 400
+    y = 400
 
-    screen.blit(hex_image, (x, y))
-    for dir in dirs:
-        delta_x, delta_y = dir_dict[dir]
-        screen.blit(hex_image, (x + delta_x, y + delta_y))
-
-    # screen.blit(hex_image, (0, hex_width * height_scale))
-
-    # screen.blit(hex_image, (hex_width * width_scale, 0))
-    # screen.blit(hex_image, (hex_width * width_scale, hex_width))
-    # screen.blit(hex_image, (0, hex_width * height_scale + hex_width))
+    hr = hex_render.HexRenderer(size=hex_dims[0])
+    hr.draw_hex_circle((x, y), hex_image, screen, nrings=2)
 
     pygame.display.flip()
 
