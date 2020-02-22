@@ -19,7 +19,7 @@ def main():
     y = 400
 
     hr = hex_render.HexRenderer(size=hex_dims[0])
-    hr.draw_hex_circle((x, y), hex_image, screen, nrings=2)
+    hr.draw_hex_circle((x, y), hex_image, screen, radius=2)
 
     pygame.display.flip()
 

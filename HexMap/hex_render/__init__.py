@@ -30,6 +30,22 @@ class HexRenderer:
         delta_x, delta_y = self._dir_delta[direction]
         return start[0] + delta_x, start[1] + delta_y
 
+    # def get_pix_from_hex(self, coords, center_coords):
+    #     x_space = coords[0] - center_coords[0]
+    #     y_space = coords[1] - center_coords[1]
+    #     z_space = coords[2] - center_coords[2]
+    #     direction = (int(x_space > 0) - int(x_space < 0), int(y_space > 0) - int(y_space < 0), int(z_space > 0) - int(z_space < 0))
+
+
+    def draw_ring(self, center, radius, image, surface):
+        coords = (center[0], center[1] + radius * 2*self._y_dist)
+        for i in range(6):
+            for j in range(radius):
+                surface.blit(image, coords)
+                coords = self.get_pix(self._dirs[i], coords)
+        # start = center + radius * 2*self._y_dist
+        # surface.blit(image, start)
+
     def draw_hex_circle(self, center, image, surface, **kwargs):
         """
         Draw a group of hexes starting with a hex that has a center at the coordinates given in center and radiating outward
@@ -39,22 +55,12 @@ class HexRenderer:
         :param **kwargs: TODO: minimum x and y, nrings, etc.
         :return:
         """
-        coords = (center[0] - self._center_dist[0], center[1] - self._center_dist[1])
-        surface.blit(image, coords)
-        nrings = kwargs.get("nrings")
+        start = (center[0] - self._center_dist[0], center[1] - self._center_dist[1])
+        surface.blit(image, start)
+        radius = kwargs.get("radius")
         n = 1
-        ringstart = self.get_pix((0, 1, -1), coords)
         while True:
-            surface.blit(image, ringstart)
-            coords = ringstart
-            for dir in self._dirs[:5]:
-                for j in range(n):  # as we get to further rings, the rings get bigger
-                    coords = self.get_pix(dir, coords)
-                    surface.blit(image, coords)
-            for k in range(n - 1):  # we already drew the first hex, so in the last direction do one fewer hexes
-                coords = self.get_pix(self._dirs[-1], coords)
-                surface.blit(image, coords)
-            ringstart = self.get_pix((0, 1, -1), ringstart)  # go "up" a hex
+            self.draw_ring(start, n, image, surface)
             n += 1
-            if n > nrings:
+            if n > radius:
                 break
