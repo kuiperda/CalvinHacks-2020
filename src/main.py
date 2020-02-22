@@ -59,12 +59,12 @@ def mainLoop():
                     direction = direction_keybindings_1[event.key]
                     neighbor = hexgrid.get_neighbor(start1_hex, direction)
                     if neighbor:
-                        neighbor_pix = hexgrid.draw_neighbor(start1_pix, direction, hex_image, screen)
+                        neighbor_pix = hexgrid.draw_neighbor(start1_pix, direction, p1_img, screen, offset=wizard_offsets)
                 elif event.key in direction_keybindings_2:
                     direction = direction_keybindings_2[event.key]
                     neighbor = hexgrid.get_neighbor(start2_hex, direction)
                     if neighbor:
-                        neighbor_pix = hexgrid.draw_neighbor(start2_pix, direction, hex_image, screen)
+                        neighbor_pix = hexgrid.draw_neighbor(start2_pix, direction, p2_img, screen, offset=wizard_offsets)
         timer.tick()            # tick the timer (must be before timer blit)
         screen.blit(timer.getSurface(), (20, 20))
         pygame.display.flip()   # update the screen
