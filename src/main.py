@@ -91,9 +91,7 @@ def mainLoop():
                 elif event.key in direction_keybindings_2:
                     direction = direction_keybindings_2[event.key]
                     p2_dir = direction
-                if check_collisions_player():
-                    print("Player collision!")
-                    return
+
         if timer.tick():        # tick the timer (must be before timer blit)
             if p1_spell:
                 # TODO: Cast a spell
@@ -107,6 +105,9 @@ def mainLoop():
             else:
                 print("moving player 2", player2.get_position(), "player 1 at", player1.get_position())
                 move_player(player2, p2_dir)
+            if check_collisions_player():
+                print("Player collision!")
+                return
 
             print("New turn!")
             p1_dir = (0, 0, 0)
