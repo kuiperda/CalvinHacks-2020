@@ -64,8 +64,10 @@ def mainLoop():
                     direction = direction_keybindings_2[event.key]
                     neighbor = hexgrid.get_neighbor(start2_hex, direction)
                     if neighbor:
-                        neighbor_pix = hexgrid.draw_neighbor(start2_pix, direction, p2_img, screen, offset=wizard_offsets)
-        timer.tick()            # tick the timer (must be before timer blit)
+                        neighbor_pix = hexgrid.draw_neighbor(start2_pix, direction, hex_image, screen)
+         if timer.tick():        # tick the timer (must be before timer blit)
+            # TODO: This is a new turn
+            print("New turn!")
         screen.blit(timer.getSurface(), (20, 20))
         pygame.display.flip()   # update the screen
         clock.tick()            # tick the clock

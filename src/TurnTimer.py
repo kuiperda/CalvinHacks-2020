@@ -32,15 +32,17 @@ class TurnTimer:
     """
     Increase the tick timer.
     Should be called on every frame.
+    Returns True when a new turn is hit, False otherwise.
     """
     def tick(self):
         self._current_tick += 1
         if self._interval == self._current_tick:
-            # TODO: Throw an event or something
             self._current_tick = 0
             self.drawBar()
+            return True
         else:
             self.updateBar()
+            return False
 
     """
     Draw the empty bar.
