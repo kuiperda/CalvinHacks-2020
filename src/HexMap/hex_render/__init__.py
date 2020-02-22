@@ -7,7 +7,11 @@ class HexRenderer:
     def __init__(self, **kwargs):
         self._size = kwargs.get("size")
         self._width_scale = kwargs.get("width_scale", 0.75)
+        if not self._width_scale:
+            self._width_scale = 0.75
         self._height_scale = kwargs.get("height_scale", 0.43)
+        if not self._height_scale:
+            self._height_scale = 0.43
         self._x_dist = self._size * self._width_scale
         self._y_dist = self._size * self._height_scale
 
@@ -29,6 +33,21 @@ class HexRenderer:
     def get_pix(self, direction, start):
         delta_x, delta_y = self._dir_delta[direction]
         return start[0] + delta_x, start[1] + delta_y
+
+    def draw_neighbor(self, start, direction, image, surface):
+        delta_x, delta_y = self._dir_delta[direction]
+        pixels = (start[0] + delta_x, start[1] + delta_y)
+        surface.blit(image, pixels)
+        return pixels
+
+    def get_size(self):
+        return self._size
+
+    def get_x_dist(self):
+        return self._x_dist
+
+    def get_y_dist(self):
+        return self._y_dist
 
     def draw_hex_rect(self, width, height, start, image, surface):
         """

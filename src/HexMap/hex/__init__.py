@@ -30,7 +30,8 @@ def hex_rotate_right(a):
 
 hex_directions = [Hex(1, 0, -1), Hex(1, -1, 0), Hex(0, -1, 1), Hex(-1, 0, 1), Hex(-1, 1, 0), Hex(0, 1, -1)]
 def hex_direction(direction):
-    return hex_directions[direction]
+    # return hex_directions[direction]
+    return Hex(*direction)
 
 def hex_neighbor(hex, direction):
     return hex_add(hex, hex_direction(direction))
