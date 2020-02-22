@@ -6,11 +6,14 @@ For CalvinHacks 2020
 
 # Initialize pygame
 import pygame
+import TurnTimer as tt
 
 screen = pygame.display.set_mode((1000,1000))
 pygame.display.set_caption("Caster Blaster")
 
 clock = pygame.time.Clock()
+
+timer = tt.TurnTimer(300, 50)
 
 # The main loop
 def mainLoop():
@@ -20,7 +23,6 @@ def mainLoop():
         for event in eventList:
             if event.type == pygame.QUIT:
                 return
-
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     print("q")
@@ -35,7 +37,9 @@ def mainLoop():
                 elif event.key == pygame.K_d:
                     print("d")
 
-    pygame.display.flip()   # update the screen
-    clock.tick()            # tick the clock
+        timer.tick()            # tick the timer (must be before timer blit)
+        screen.blit(timer.getSurface(), (20, 20))
+        pygame.display.flip()   # update the screen
+        clock.tick()            # tick the clock
 
 mainLoop()
