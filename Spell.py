@@ -1,46 +1,114 @@
 
-    # __init__(self, **kwargs)
-    # self.damage = kwargs.get("damage")
-
-
 class Spell():
 
-    def __init__(self, channelTime, cooldown, damage, playerPos, directionInput, spellType):
-        self.channelTime = channelTime
-        self.cooldown = cooldown
-        self.damage = damage
-        self.playerPos = playerPos
-        self.directionInput = directionInput
-        self.type = spellType
+    def __init__(self, **kwargs):
+        self.channelTime = kwargs.get("channelTime")
+        self.cooldown = kwargs.get("cooldown")
+        self.image = kwargs.get("image")
+        self.pixels = kwargs.get("pixels")
+        self.position = kwargs.get("position")
+        self.spells = kwargs.get("spells")
+        self.damage = kwargs.get("damage")
+
+    def get_channelTime(self):
+        return self.channelTime
+
+    def set_channelTime(self, newVal):
+        self.channelTime = newVal
+
+    def get_cooldown(self):
+        return self.cooldown
+
+    def set_cooldown(self, newVal):
+        self.cooldown = newVal
+
+    def get_image(self):
+        return self.image
+
+    def set_image(self, newVal):
+        self.image = newVal
+
+    def get_pixels(self):
+        return self.pixels
+
+    def set_pixels(self, newVal):
+        self.pixels = newVal
+
+    def get_position(self):
+        return self.position
+
+    def set_position(self, newVal):
+        self.position = newVal
+
+    def get_spells(self):
+        return self.spells
+
+    def set_spells(self, newVal):
+        self.spells = newVal
+
+    def get_damage(self):
+        return self.damage
+
+    def set_damage(self, newVal):
+        self.damage = newVal
+
 
 class Blast(Spell):
-    def __init__(self, pos, dir):
-        super().__init__(0, 0, 1, pos, dir, 'basic')
+    def __init__(self, **kwargs):
+        super().__init__()
 
-        # pos = playerPos + (direction add)
-        # heading = direction?
+    def cast(self, position, direction):
+        return self
 
-        #blast = Hitbox(self.damage, pos, heading, 1)
-        #hitbox should probably do the drawing/updating part, too...
-
-class Gust(Spell):
-    def __init__(self, pos, dir):
-        super().__init__(0, 2, 0, pos, dir, 'cantrip')
-        #call player move function twice, passing (dir)
-
-class Block(Spell):
-    def __init__(self, pos, dir):
-        super().__init__(0, 4, 0, pos, dir, 'cantrip')
-        # add 1 temporary hp to player this turn only
-
-class Sear(Spell):
-    def __init__(self, pos, dir):
-        super().__init__(0, 2, 1, pos, dir, 'cantrip')
-        # see (or inherit from?) blast just with higher speed 
+    def onCollision(self): 
+        #player.hp -= 1
+        # return collision image
+        pass
 
 class Lance(Spell):
-    def __init__(self, pos, dir):
-        super().__init__(1, 4, 2, pos, dir, 'lesser')
-        #make line of 1 turn hitboxes until hit a wall
+    def __init__(self, **kwargs):
+        super().__init__()
 
-        
+    def cast(self, position, direction):
+        return self
+
+    def onCollision(self): 
+        # damage player
+        # return collision image
+        pass
+
+class Gust(Spell):
+    def __init__(self, **kwargs):
+        super().__init__()
+
+    def cast(self, position, direction):
+        return self
+
+    def onCollision(self): 
+        # damage player
+        # return collision image
+        pass
+
+class Block(Spell):
+    def __init__(self, **kwargs):
+        super().__init__()
+
+    def cast(self, position, direction):
+        return self
+
+    def onCollision(self): 
+        # damage player
+        # return collision image
+        pass
+
+class Sear(Spell):
+    def __init__(self, **kwargs):
+        super().__init__()
+
+    def cast(self, position, direction):
+        return self
+
+    def onCollision(self): 
+        # damage player
+        # return collision image
+        pass
