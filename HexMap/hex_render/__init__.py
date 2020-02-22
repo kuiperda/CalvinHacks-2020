@@ -30,14 +30,25 @@ class HexRenderer:
         delta_x, delta_y = self._dir_delta[direction]
         return start[0] + delta_x, start[1] + delta_y
 
-    # def get_pix_from_hex(self, coords, center_coords):
-    #     x_space = coords[0] - center_coords[0]
-    #     y_space = coords[1] - center_coords[1]
-    #     z_space = coords[2] - center_coords[2]
-    #     direction = (int(x_space > 0) - int(x_space < 0), int(y_space > 0) - int(y_space < 0), int(z_space > 0) - int(z_space < 0))
+    def draw_hex_rect(self, width, height, start, image, surface):
+        """
 
+        :param width: width (number horizontal)
+        :param height: height (number vertical)
+        :param start: starting coordinates
+        :return:
+        """
+        start_x, start_y = start
+        for row in range(height):
+            for col in range(width):
+                x = start_x + col * self._x_dist
+                y = start_y + row * self._y_dist*2
+                if col % 2 != 0:
+                    y += self._y_dist
+                surface.blit(image, (x, y))
 
     def draw_ring(self, center, radius, image, surface):
+        # DOES NOT WORK
         coords = (center[0], center[1] + radius * 2*self._y_dist)
         for i in range(6):
             for j in range(radius):
@@ -48,6 +59,8 @@ class HexRenderer:
 
     def draw_hex_circle(self, center, image, surface, **kwargs):
         """
+        DOES NOT WORK
+
         Draw a group of hexes starting with a hex that has a center at the coordinates given in center and radiating outward
         :param center: coordinates of the center of the center hex
         :param image: the hexagon image
