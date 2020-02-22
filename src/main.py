@@ -37,7 +37,9 @@ def mainLoop():
                 elif event.key == pygame.K_d:
                     print("d")
 
-        timer.tick()            # tick the timer (must be before timer blit)
+        if timer.tick():        # tick the timer (must be before timer blit)
+            # TODO: This is a new turn
+            print("New turn!")
         screen.blit(timer.getSurface(), (20, 20))
         pygame.display.flip()   # update the screen
         clock.tick()            # tick the clock
