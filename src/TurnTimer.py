@@ -26,7 +26,7 @@ class TurnTimer:
 
         self.drawBar()
 
-    def getSurface():
+    def getSurface(self):
         return self._surface
     
     """
