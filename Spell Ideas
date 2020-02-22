@@ -1,0 +1,133 @@
+Created for CalvinHacks 2020
+Daniel Kuiper
+
+Background: 
+- Spells will have a cooldown and a channel time - channel time is how many turns you stand still before the spell goes off, cd is obvious
+- Players choose 4 spells from a list before the game
+- Movement is move in a direction or cast a spell in a direction; most require a spellPress + directionPress
+
+Spells could have power level 'lesser' / 'greater' (and could add elemental affiliations later on)
+Maybe like choose 1 cantrip, 2 lesser spells, one greater spell? (+ 1 basic spell) Maybe a passive effect?
+
+Ideas: (note: all of this, names/CT/CD especially, are subject to change with better ideas)
+Also, can certainly move these to different tiers sometimes
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+---------------------------------------------------------------------------------------------------------
+Basic Spell(s?)
+---------------------------------------------------------------------------------------------------------
+
+- Blast: CT 0, CD 0 (Spacebar to use?)
+    <Basic attack spell that every player has in addition to their selected spells>
+    Shoot a bolt of energy that moves 1 hex per turn until it hits a wall, does low damage
+
+---------------------------------------------------------------------------------------------------------
+Cantrips: (low level spells that generally have no CT and low CD)
+---------------------------------------------------------------------------------------------------------
+
+- Gust: CT 0, CD 2
+    Move self 2 hexes in one direction
+
+- Sear: CT 0, CD 2
+    Shoot a bolt of energy with 2 speed 
+
+- Block: CT 0, CD 4
+    Weak shield on self (Gain 1 temporary hit point this move only)
+
+- (Burst? idk what to call this) CT 0, CD 1
+    Hit all adjacent tiles
+
+- Miasma: CT 0, CD 1-2?
+    Place a lingering poison on a hex (2?) in one direction (lasts 2-3 turns?) (DoT?)
+
+- Splitter: CT 0, CD 2
+    Place a bolt in a direction; it splits into 2 moving at adjacent diagonals
+
+
+----------------------------------------------------------------------------------------------------------
+Lesser: (the main spells of the game, variety of CT and CD with many effects)
+----------------------------------------------------------------------------------------------------------
+
+- Burning Lance: CT 1, CD 4
+    Shoot in one direction, hitting immediately at any distance
+
+- Sediment Smash: CT 1, CD 4
+    Hit 2 hexes away; damage all hexes adjacent to that hex (maybe 2x dmg on direct hit)
+
+- Triple Blast: CT 0, CD 4
+    Shoot a bolt in one direction and 2 adjacent directions (speed 1)
+
+- Barrier: CT 1, CD 8
+    Block all damage from one spell
+
+- Shocking Bolt: CT 1, CD 4
+    Shoot a bolt at speed 2 that stuns (immobilize and silence) for 1 turn
+
+
+
+directed spell (choose a repeated pattern with direction keys)
+tendril moves within 3 tiles (hit 3 directions to use)
+self teleport 
+snaking spell?
+'telekinesis' moves opponent?
+    quick slash 
+big smash in front
+call down big semi-filled aoe around self (starcall)
+reflect
+poison/DoT
+stunning bolt
+linger/slow bolts but shoot a lot more?
+cone blast? (without freeze)
+
+
+----------------------------------------------------------------------------------------------------------
+Greater: (most powerful spell, long cooldown/channel (probably)
+----------------------------------------------------------------------------------------------------------
+
+- Shockwave: CT 1, CD 4
+    Hit all adjacent, then hit next ring
+
+- Freeze: CT 3, CD 10
+    Shoot a cone that freezes enemy for a few turns (how big of a cone? 3?)
+
+- Bouncing Blast: CT 0, CD 8
+    Shoot a blast that bounces back and forth until it hits (maintain up to 3?)
+
+- Mega Blast CT 2, CD 8
+    Shoot a BIG blast (center 2 hexes away, shoot a moving blast with mega increased size to 7 hexes, speed of 1)
+
+- Bullet Time: CT 4, CD N/A
+    Passive effect: Increase the speed of bolts by 1, increase damage taken from bolts
+
+- Meteor Shower: CT 4, CD N/A
+    Passive effect: Rain down 3-6 meteors on random hexes each turn
+
+
+
+
+
+
+
+
+
+
+- Nether Walk: CT 3, CD 8
+    While channeling: direction moves location of impact 2 hexes in that direction, when a
+
+embrace madness/familiar (shoot bolts every turn in random directions?)
+hit walls only?
+immobilize silence invuln opponent for 2 turns (setup)
+big earthqake with long channel
+buff self (long channel) - less cooldown?
+time change? (speedup/slow?)
+debuff opponent somehow
+some sort of toggle? maybe deal more dmg but take more
+big wind (moves bolts etc)
+spiral/ring?
+
+AVOID THIS FOR NOW - permanent tile changes (add terrain spell (pillar on hex limit movement) or permanent lava hex)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+other random ideas:
