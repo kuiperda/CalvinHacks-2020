@@ -9,13 +9,42 @@ import pygame
 def main():
     # initialize the pygame module
     pygame.init()
-    # load and set the logo
-    # logo = pygame.image.load("logo32x32.png")
-    # pygame.display.set_icon(logo)
-    pygame.display.set_caption("minimal program")
+    pygame.display.set_caption("hexgrid test")
 
-    # create a surface on screen that has the size of 240 x 180
-    screen = pygame.display.set_mode((512, 512))
+    hex_width = 338
+    width_scale = 0.86
+    height_scale = 0.5
+    x_dist = hex_width * width_scale
+    y_dist = hex_width
+
+    # hex_directions = [Hex(1, 0, -1), Hex(1, -1, 0), Hex(0, -1, 1), Hex(-1, 0, 1), Hex(-1, 1, 0), Hex(0, 1, -1)]
+    # maps direction to change in x and y
+    dir_dict = {(1, 0, -1): (hex_width * width_scale, -hex_width * height_scale),
+                (1, -1, 0): (hex_width * width_scale, -height_scale),
+                (0, -1, 1): (0, hex_width * height_scale),
+                }
+    dirs = list(dir_dict.keys())
+
+    screen = pygame.display.set_mode((1000, 1000))
+    screen.fill((255, 255, 255))
+
+    hex_image = pygame.image.load("HexMap/regular_hex.png")
+
+    x = 200
+    y = 200
+
+    # screen.blit(hex_image, (x, y))
+    # for dir in dirs[:2]:
+    #     delta_x, delta_y = dir_dict[dir]
+    #     screen.blit(hex_image, (x + delta_x, y + delta_y))
+
+    screen.blit(hex_image, (0, hex_width * height_scale))
+
+    screen.blit(hex_image, (hex_width * width_scale, 0))
+    screen.blit(hex_image, (hex_width * width_scale, hex_width))
+    screen.blit(hex_image, (0, hex_width * (1 + height_scale)))
+
+    pygame.display.flip()
 
     # define a variable to control the main loop
     running = True

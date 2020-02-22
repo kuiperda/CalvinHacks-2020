@@ -1,4 +1,4 @@
-from HexMap import hex
+import hex
 
 class HexMap:
     def __init__(self, **kwargs):
