@@ -4,7 +4,7 @@ Keep track of turns and show bar on screen.
 For CalvinHacks 2020
 """
 
-INTERVAL = 1000              # Length of turn in frames
+INTERVAL = 1000             # Length of turn in miliseconds
 FILL = (0, 0, 0)            # Fill color
 BORDER = (255, 255, 255)    # Border color
 
@@ -23,6 +23,7 @@ class TurnTimer:
         self._surface = pygame.Surface((width,height))
         self._border_rect = pygame.Rect(0, 0, self._width, self._height)
         self._fill_rect = pygame.Rect(5, 5, self._width - 10, self._height - 10)
+        self._clock = pygame.time.Clock()
 
         self.drawBar()
 
@@ -35,8 +36,8 @@ class TurnTimer:
     Returns True when a new turn is hit, False otherwise.
     """
     def tick(self):
-        self._current_tick += 1
-        if self._interval == self._current_tick:
+        self._current_tick += self._clock.tick()
+        if self._current_tick > self._interval:
             self._current_tick = 0
             self.drawBar()
             return True
