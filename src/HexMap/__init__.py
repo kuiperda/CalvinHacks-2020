@@ -84,6 +84,6 @@ class HexMap:
             return neighbor
         # if we get here then neighbor is out of bounds
         return None
-
+    
     def draw_neighbor(self, start_pix, dir, image, surface, offset=None):
         return self._renderer.draw_neighbor(start_pix, dir, image, surface, offset)
