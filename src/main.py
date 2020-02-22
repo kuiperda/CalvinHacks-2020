@@ -23,6 +23,20 @@ def mainLoop():
         for event in eventList:
             if event.type == pygame.QUIT:
                 return
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                    print("q")
+                elif event.key == pygame.K_w:
+                    print("w")
+                elif event.key == pygame.K_e:
+                    print("e")
+                elif event.key == pygame.K_a:
+                    print("a")
+                elif event.key == pygame.K_s:
+                    print("s")
+                elif event.key == pygame.K_d:
+                    print("d")
+
         timer.tick()            # tick the timer (must be before timer blit)
         screen.blit(timer.getSurface(), (20, 20))
         pygame.display.flip()   # update the screen
