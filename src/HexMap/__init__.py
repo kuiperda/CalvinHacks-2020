@@ -1,4 +1,4 @@
-from HexMap import hex
+from src.HexMap import hex, hex_render
 
 class HexMap:
     def __init__(self, **kwargs):
@@ -20,6 +20,16 @@ class HexMap:
         else:
             self._zmin = -1 * kwargs.get("zrad")
             self._zmax = kwargs.get("zrad")
+
+        # width and height (in number of hexagons)
+        self._width = abs(self._xmin) + abs(self._xmax) + 1
+        self._height = abs(self._ymin) + abs(self._ymax) + 1
+
+        self._renderer = hex_render.HexRenderer(size=kwargs.get("size"), width_scale=kwargs.get("width_scale"),
+                                                height_scale=kwargs.get("height_scale"))
+
+    def draw_hex_rect(self, startpix, image, surface):
+        self._renderer.draw_hex_rect(self._width, self._height, startpix, image, surface)
 
     def get_neighbor(self, start, dir):
         """

@@ -7,7 +7,11 @@ class HexRenderer:
     def __init__(self, **kwargs):
         self._size = kwargs.get("size")
         self._width_scale = kwargs.get("width_scale", 0.75)
+        if not self._width_scale:
+            self._width_scale = 0.75
         self._height_scale = kwargs.get("height_scale", 0.43)
+        if not self._height_scale:
+            self._height_scale = 0.43
         self._x_dist = self._size * self._width_scale
         self._y_dist = self._size * self._height_scale
 

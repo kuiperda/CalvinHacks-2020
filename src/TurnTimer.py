@@ -5,8 +5,8 @@ For CalvinHacks 2020
 """
 
 INTERVAL = 1000              # Length of turn in frames
-FILL = (0, 0, 0)            # Fill color
-BORDER = (255, 255, 255)    # Border color
+FILL = (255, 255, 255)            # Fill color
+BORDER = (0, 0, 0)    # Border color
 
 import pygame
 
