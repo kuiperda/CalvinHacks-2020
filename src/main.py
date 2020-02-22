@@ -21,6 +21,20 @@ def mainLoop():
             if event.type == pygame.QUIT:
                 return
 
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                    print("q")
+                elif event.key == pygame.K_w:
+                    print("w")
+                elif event.key == pygame.K_e:
+                    print("e")
+                elif event.key == pygame.K_a:
+                    print("a")
+                elif event.key == pygame.K_s:
+                    print("s")
+                elif event.key == pygame.K_d:
+                    print("d")
+
     pygame.display.flip()   # update the screen
     clock.tick()            # tick the clock
 
