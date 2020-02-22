@@ -8,8 +8,9 @@
             "name": "Python: Launch Game",
             "type": "python",
             "request": "launch",
-            "program": "src/main.py",
-            "console": "integratedTerminal"
+            "program": "${workspaceFolder}/src/main.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/src"
         }
     ]
 }
