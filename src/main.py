@@ -8,6 +8,10 @@ For CalvinHacks 2020
 import pygame
 import TurnTimer as tt
 
+menu = pygame.display.set_mode((1000,1000))
+pygame.display.set_caption("Caster Blaster - Menu")
+
+
 screen = pygame.display.set_mode((1000,1000))
 pygame.display.set_caption("Caster Blaster")
 
